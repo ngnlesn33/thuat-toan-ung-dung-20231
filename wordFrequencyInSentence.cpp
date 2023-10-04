@@ -15,7 +15,7 @@ int main() {
         }
         str += TEXT;
     }
-//    process space
+    // process space
     istringstream iss(str);
     do {
         string subs;
