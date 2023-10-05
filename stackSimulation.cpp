@@ -2,14 +2,15 @@
 #include <string>
 #include <sstream>
 #include <stack>
+#include <vector>
 
 using namespace std;
 
-// Function to split a string into words
-void splitString(const string &s, string &first_word, string &second_word);
+void splitString(const std::string &s, std::string &first_word, std::string &second_word);
 
 int main() {
     stack<string> stack;
+    vector<string> v;
     // get string
     string line;
     // read a line from std::cin into line
@@ -22,11 +23,13 @@ int main() {
         }
         if (first_word == "POP") {
             if (!stack.empty()) {
-                cout << stack.top() << endl;
+                v.insert(v.end(),stack.top());
                 stack.pop();
-            } else cout << "NULL" << endl;
+            } else v.insert(v.end(),"NULL");
         }
     }
+    for (const auto& x : v)
+        cout << x << endl;
     return 0;
 }
 
@@ -35,4 +38,3 @@ void splitString(const string &s, string &first_word, string &second_word) {
     istringstream iss(s);
     iss >> first_word >> second_word;
 }
-
