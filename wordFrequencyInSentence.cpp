@@ -9,10 +9,7 @@ int main() {
     map<string, int> M;
     // Get the String
     string TEXT, str;
-    while (getline(cin, TEXT)) {
-        if (TEXT.empty()) {
-            break;
-        }
+    while (getline(cin, TEXT) && !TEXT.empty()) {
         str += TEXT;
     }
     // process space
