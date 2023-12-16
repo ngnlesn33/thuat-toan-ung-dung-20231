@@ -1,3 +1,0 @@
-/home/ngnlesn33/Development/thuat-toan-ung-dung-20231/cmake-build-debug/CMakeFiles/thuat_toan_ung_dung_20231.dir
-/home/ngnlesn33/Development/thuat-toan-ung-dung-20231/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ngnlesn33/Development/thuat-toan-ung-dung-20231/cmake-build-debug/CMakeFiles/rebuild_cache.dir
