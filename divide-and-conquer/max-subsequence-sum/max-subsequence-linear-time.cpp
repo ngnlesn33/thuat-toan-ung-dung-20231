@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int maxContiguousSubarraySum(vector<int> &nums) {
-    auto lengthOfNums = nums.size();
+int maxContiguousSubarraySum(vector<int> &nums, int lengthOfNums) {
     int maxSoFar = nums[0];
     int maxEndingHere = nums[0];
 
@@ -24,6 +23,6 @@ int main() {
     for (int i = 0; i < lengthOfNums; ++i) {
         cin >> nums[i];
     }
-    cout << maxContiguousSubarraySum(nums);
+    cout << maxContiguousSubarraySum(nums,lengthOfNums);
     return 0;
 }

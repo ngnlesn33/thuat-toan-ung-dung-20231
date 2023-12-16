@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "thuat_toan_ung_dung_20231",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "thuat_toan_ung_dung_20231::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-thuat_toan_ung_dung_20231-Debug-b9d38c9d72396f3e52c9.json",
+					"name" : "thuat_toan_ung_dung_20231",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ngnlesn33/Development/thuat-toan-ung-dung-20231/cmake-build-debug",
+		"source" : "/home/ngnlesn33/Development/thuat-toan-ung-dung-20231"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
