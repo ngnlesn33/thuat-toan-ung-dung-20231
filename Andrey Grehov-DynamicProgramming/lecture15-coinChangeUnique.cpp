@@ -17,18 +17,27 @@ using namespace std;
  *  4. Order of execution: Bottom-up
  *  5. The answer: f(n, t)
  */
-int changeCoin(int n, const vector<int> &coins) {
-    vector<vector<int>> dp(n + 1, vector<int>(coins.size() + 1, 0));
-    for (auto const &t: coins)
-        dp[0][t] = 1;
-    for (int i = 0; i < n + 1; ++i) {
-        for (int j = 0; j < ; ++j) {
-            
-        } 
+int coinChangeUniqueWays(int n, vector<int> coins) {
+    vector<vector<int>> dp(n + 1, vector<int>(coins.size()+1, 0));
+
+    for (int i = 0; i < coins.size(); i++) {
+        dp[0][i] = 1;
     }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < coins.size(); j++) {
+            for (int k = 0; k <= j; k++) {
+                if (i - coins[k] >= 0) {
+                    dp[i][j] += dp[i - coins[k]][k];
+                }
+            }
+        }
+    }
+    return dp[n][coins.size() - 1];
 }
 
 int main() {
+    cout << coinChangeUniqueWays(75, {1, 2, 3, 5});
     return 0;
 
 }

@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    ".css": "tailwindCSS",
+    "iomanip": "cpp",
+    "xstring": "cpp"
+  }
+}
