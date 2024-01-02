@@ -4,8 +4,7 @@ using namespace std;
 
 time_t convertToTimeT(string &time);
 
-vector<tuple<string, string, string, string, int>>
-firstAndLastTrip(vector<tuple<string, string, string, string, int>> &, const string &);
+vector<tuple<string, string, string, string, int>> firstAndLastTrip(vector<tuple<string, string, string, string, int>> &, const string &);
 
 void sortDataByDateTime(vector<tuple<string, string, string, string, int>> &);
 
@@ -17,8 +16,7 @@ int TOTAL_QTY(vector<tuple<string, string, string, string, int>> &);
 
 int QTY_CUSTOMER(vector<tuple<string, string, string, string, int>> &, const string &);
 
-int
-QTY_MAX_PERIOD(vector<tuple<string, string, string, string, int>> &, string, const string &, string, const string &);
+int QTY_MAX_PERIOD(vector<tuple<string, string, string, string, int>> &, string, const string &, string, const string &);
 
 set<string> TOTAL_TRIPS(vector<tuple<string, string, string, string, int>> &);
 
