@@ -4,31 +4,6 @@ using namespace std;
 
 time_t convertToTimeT(string &time);
 
-//// Convert time from hh:mm:ss format to hour, minute, second
-//void convertHourMinuteSecond(int &hour, int &minute, int &second, string &time) {
-//    hour = stoi(time.substr(0, 2));
-//    minute = stoi(time.substr(3, 2));
-//    second = stoi(time.substr(6, 2));
-//}
-//
-//// Convert YYYY-MM-DD format to year, month, day
-//void convertYearMonthDay(int &year, int &month, int &day, string &date) {
-//    year = stoi(date.substr(0, 4));
-//    month = stoi(date.substr(5, 2));
-//    day = stoi(date.substr(8, 2));
-//}
-//
-//// read date until "*" and store in vector
-//void readDate(vector<string> &dates) {
-//    string date;
-//    while (cin >> date && date != "*") {
-//        dates.push_back(date);
-//    }
-//}
-
-// Data input with <trip_code> <customer_code> <date> <time> qty format. Read until "***" and store in vector of tuple
-// (trip_code, customer_code, date, qty) and return the vector of tuple
-
 void readData(vector<tuple<string, string, string, string, int>> &data) {
     string tripCode, customerCode, date, time;
     int qty;
