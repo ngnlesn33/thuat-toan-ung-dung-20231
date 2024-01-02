@@ -22,16 +22,13 @@ QTY_MAX_PERIOD(vector<tuple<string, string, string, string, int>> &, string, con
 
 set<string> TOTAL_TRIPS(vector<tuple<string, string, string, string, int>> &);
 
-
 int TRAVEL_TIME_TRIP(vector<tuple<string, string, string, string, int>> &, const string &);
-
 
 int dfs(int idx, vector<pair<time_t, time_t>> &trips, vector<pair<time_t, time_t>> &current_set);
 
 int MAX_CONFLICT_TRIPS(vector<tuple<string, string, string, string, int>> &);
 
 void readQuery(vector<tuple<string, string, string, string, int>> &);
-
 
 int main() {
     vector<tuple<string, string, string, string, int>> data;
@@ -54,8 +51,7 @@ void readData(vector<tuple<string, string, string, string, int>> &data) {
 int TOTAL_QTY(vector<tuple<string, string, string, string, int>> &data) {
     int totalQty = 0;
     for (const auto &trip: data) {
-        int qty;
-        qty = get<4>(trip);
+        auto qty = get<4>(trip);
         totalQty += qty;
     }
     return totalQty;
@@ -65,10 +61,8 @@ int TOTAL_QTY(vector<tuple<string, string, string, string, int>> &data) {
 int QTY_CUSTOMER(vector<tuple<string, string, string, string, int>> &data, const string &customerCode) {
     int totalQtyCustomer = 0;
     for (const auto &trip: data) {
-        string currentCustomerCode;
-        int qty;
-        currentCustomerCode = get<1>(trip);
-        qty = get<4>(trip);
+        auto currentCustomerCode = get<1>(trip);
+        auto qty = get<4>(trip);
         if (customerCode == currentCustomerCode) {
             totalQtyCustomer += qty;
         }
@@ -85,11 +79,9 @@ int QTY_MAX_PERIOD(vector<tuple<string, string, string, string, int>> &data, str
     time_t from = convertToTimeT(tStrFrom);
     time_t to = convertToTimeT(tStrTo);
     for (const auto &trip: data) {
-        string tripCode, customerCode, date, time;
-        int qty;
-        date = get<2>(trip);
-        time = get<3>(trip);
-        qty = get<4>(trip);
+        auto date = get<2>(trip);
+        auto time = get<3>(trip);
+        auto qty = get<4>(trip);
         string tStr = date.append(" ").append(time);
         time_t t = convertToTimeT(tStr);
         if (t >= from && t <= to) {
@@ -115,22 +107,18 @@ void sortDataByDateTime(vector<tuple<string, string, string, string, int>> &data
     // sort data by date and time of trip code and then by qty.
     sort(data.begin(), data.end(),
          [](const tuple<string, string, string, string, int> &a, const tuple<string, string, string, string, int> &b) {
-             string dateA, timeA;
-             int qtyA;
-             dateA = get<2>(a);
-             timeA = get<3>(a);
-             qtyA = get<4>(a);
-             string dateB, timeB;
-             int qtyB;
-             dateB = get<2>(b);
-             timeB = get<3>(b);
-             qtyB = get<4>(b);
+             auto dateA = get<2>(a);
+             auto timeA = get<3>(a);
+             auto qtyA = get<4>(a);
+
+             auto dateB = get<2>(b);
+             auto timeB = get<3>(b);
+             auto qtyB = get<4>(b);
+
              time_t tA = convertToTimeT(dateA.append(" ").append(timeA));
              time_t tB = convertToTimeT(dateB.append(" ").append(timeB));
-             if (tA != tB) {
-                 return tA < tB;
-             }
-             return qtyA < qtyB;
+
+             return (tA != tB) ? (tA < tB) : (qtyA < qtyB);
          });
 }
 
@@ -167,17 +155,14 @@ firstAndLastTrip(vector<tuple<string, string, string, string, int>> &data,
     return tripData;
 }
 
-
 // Return total time of trip with <trip_code>. Total time is time from first customer to last customer. The time insert in data is not sorted by time and date, so we need to sort it first by date and time of trip code and then calculate total time of trip code by subtracting time of first customer and last customer of trip code and return total time of trip code in minutes (round up) with format TRAVEL_TIME_TRIP <trip_code> until ***.
 int TRAVEL_TIME_TRIP(vector<tuple<string, string, string, string, int>> &data, const string &tripCode) {
     vector<tuple<string, string, string, string, int>> tripData = firstAndLastTrip(data, tripCode);
     // Get the date and time of first and last customer of trip code
-    string dateFirst, timeFirst;
-    dateFirst = get<2>(tripData[0]);
-    timeFirst = get<3>(tripData[0]);
-    string dateLast, timeLast;
-    dateLast = get<2>(tripData[1]);
-    timeLast = get<3>(tripData[1]);
+    auto dateFirst = get<2>(tripData[0]);
+    auto timeFirst = get<3>(tripData[0]);
+    auto dateLast = get<2>(tripData[1]);
+    auto timeLast = get<3>(tripData[1]);
     string tStrFirst = dateFirst + " " + timeFirst;
     string tStrLast = dateLast + " " + timeLast;
     time_t tFirst = convertToTimeT(tStrFirst);
