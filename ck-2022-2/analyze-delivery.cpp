@@ -112,7 +112,6 @@ int TRAVEL_TIME_TRIP(vector<tuple<string, string, string, string, int>> &data, c
             tripData.push_back(res);
         }
     }
-    //    sortDataByDateTime(tripData);
     string tripCodeFirst, customerCodeFirst, dateFirst, timeFirst;
     int qtyFirst;
     tie(tripCodeFirst, customerCodeFirst, dateFirst, timeFirst, qtyFirst) = tripData[0];
